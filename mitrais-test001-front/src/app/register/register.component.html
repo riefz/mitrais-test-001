@@ -1,0 +1,77 @@
+<div class="content">
+    <div class="content-body">
+        <div class="errorFormBox" *ngIf="errType=='IsErrorForm'">
+            <span>{{errMessage}}</span>
+        </div>
+
+        <h4>Registration</h4>
+
+        <div class="emptySpace"></div>
+        <form [formGroup]="registerForm" >
+            <div>
+                <div [attr.data-tip]="errMessage" *ngIf="errType=='isMobilePhone'"><div style="height:1px; float: right;"></div></div>
+                <label for="firstname">Mobile</label>
+                <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile">
+            </div>
+
+            <div>
+                <div [attr.data-tip]="errMessage" *ngIf="errType=='isFirstName'"><div style="height:1px; float: right;"></div></div>
+                <label for="firstname">First name</label>
+                <input id="firstname" type="text" formControlName="firstname" placeholder="First name">
+            </div>
+
+            <div>
+                <div [attr.data-tip]="errMessage" *ngIf="errType=='isLastName'"><div style="height:1px; float: right;"></div></div>
+                <label for="lastname">Last name</label>
+                <input id="lastname" type="text" formControlName="lastname" placeholder="Last name">
+            </div>
+
+            <div class="emptySpace"></div>
+
+            <div>
+                <label for="birthdate">Date of Birth</label>
+                <input id="birthdate" type="date" formControlName="birthdate" placeholder="Date of Birth">
+            </div>
+
+            <div class="emptySpace"></div>
+
+            <div>
+                <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+                <label for="male">Male</label>
+            
+                <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+                <label for="female">Female</label>
+            </div>  
+            
+            <div class="emptySpace"></div>
+
+            <div>
+                <div [attr.data-tip]="errMessage" *ngIf="errType=='isEmail'"><div style="height:1px; float: right;"></div></div>
+                <label for="email">Email</label>
+                <input id="email" type="text" formControlName="email" placeholder="Email">
+            </div>
+
+            <div class="emptySpace"></div>
+            <div class="emptySpace"></div>
+
+            <a class="button register-button" type="button" (click)="onSubmit(registerForm.value)">Register</a>
+
+        </form>    
+
+        <div class="emptySpace"></div>
+        <div class="emptySpace"></div>
+
+        <div id="disabledLayer"></div>
+    </div>
+</div>
+
+<div class="emptySpace"></div>
+
+<div class="content" *ngIf="canLogin==true">
+    <div class="content-body">
+        <div class="emptySpace"></div>
+        <a class="button register-button" href="/login">Login</a>
+        <div class="emptySpace"></div>
+    </div>
+</div>
+
